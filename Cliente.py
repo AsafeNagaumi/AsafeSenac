@@ -14,7 +14,7 @@ class Cliente:
         # Métodos - ações
  
     def imprimir(self):
-        print(f"|---Nome: {self.nome}---|")
+        print(f"|--Nome: {self.nome}---|")
         print(f"|--Telefone: {self.__telefone}--|")
         print(f"|--Endereço: {self.endereco}--|")
  
