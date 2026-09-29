@@ -1,33 +1,30 @@
-class pedido:
+class Pedido:
+    status = "Recebido"
 
-    status="Recebido" 
-
-    def __init__(self, num, data, hora, cliente, itens, pag, produtos, tipo, valor, Valortotal ):
-        self.num=num
-        self.data=data
-        self.hora=hora
-        self.cliente=cliente
-        self.itemPedido=itens
-        self.pagamento=pag
-        self.produtos=produtos
-        self.tipo=tipo
-        self.valor=valor
-        self.Valortotal=Valortotal
-        
+    def __init__(self, num, data, hora, cliente, itens, pagamento):
+        self.num = num
+        self.data = data
+        self.hora = hora
+        self.cliente = cliente
+        self.itens = itens   
+        self.pagamento = pagamento
 
     def atualizarPedido(self, novoStatus):
-        self.status=novoStatus
+        self.status = novoStatus
 
     def imprimir(self):
-        print(f"\n|--------- Pedido nº {self.num} ----------|"
-              f"\n|Data: {self.data}                  |"
-              f"\n|Horário: {self.hora}                  |"
-              f"\n|Cliente: {self.cliente.nome}            |"
-              f"\n|Itens: {self.itemPedido}                |"
-              f"\n|Método de Pagamento: {self.pagamento}        |"
-              f"\n|Endereço: {self.cliente.endereco}     |"
-              f"\n|Telefone: {self.cliente.getTelefone()}   |"
-              f"\n|Tipo: {self.tipo}        |"
-              f"\n|Produtos: {self.produtos}({self.valor})      |"
-              f"\n|Valor Total: {self.Valortotal}            |"                          
-              f"\n|--------------------------------|")
+        print(f"\n--------- Pedido nº {self.num} --------------|"
+              f"\nData: {self.data}                      |"
+              f"\nHorário: {self.hora}                      |"
+              f"\nCliente: {self.cliente.nome}                       |"
+              f"\nMétodo de Pagamento: {self.pagamento}            |"
+              f"\nEndereço: {self.cliente.endereco}             |"
+              f"\nTelefone: {self.cliente.getTelefone()}        |"
+              f"\nStatus: {self.status}                    |")
+
+        for item in self.itens:
+            print(f"------------------------------------|\n"
+                  f"Produto: {item.produto.descricao} "
+                  f"- Qtd: {item.quantidade}| \n- Valor: {item.produto.preco}       "
+                  f"- Total: {item.TotalItem()}  |"
+                  f"\n------------------------------------|")

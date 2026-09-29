@@ -1,30 +1,26 @@
 import os
-from Pedido import pedido
+
 from Cliente import Cliente
-from ItemPedido import ItemPedido
 from Produto import Produto
+from ItemPedido import ItemPedido
+from Pedido import Pedido
 
-os.system("cls")
+os.system('cls')
 
-#novoPedido = pedido(1, "14/09/26", "21:10", "João", ["X-salada", "X-Bacon"], "Pix" )
-#print(novoPedido.cliente)
-# print(novoPedido.status)
-# #Alterar nome 67
-# novoPedido.cliente="Calebe Gay"
-# print(novoPedido.cliente)
-# novoPedido.imprimir()
-# novoPedido.atualizarPedido("Em preparação")
+# Cliente
+novoCli = Cliente(nome="João", endereco="Rua boa, nº00", telefone="67 (+55) 7265-1233")
 
-# print(novoPedido.atualizarPedido)
-# print(novoPedido.imprimir)
-ItemPedido = "5 X-Bacon"
+# Produtos
+siri = Produto(cod=1, desc="Hambúrguer de Siri", categoria="Lanche", preco=20.55)
+refri = Produto(cod=2, desc="Tubaina", categoria="Bebida", preco=5.60)
 
+# Itens do pedido
+Item1 = ItemPedido(produto=siri, obs="Cebola Extra", qtd=2, desconto=2)
+Item2 = ItemPedido(produto=refri, obs="Motoboy morreu no caminho", qtd=2, desconto=0)
 
-novoCliente = Cliente(endereco="Rua Vital Brasil ",nome="João Pedro ", telefone= "+55 (67) 0178-2387 " )
-novoCliente.imprimir()
+# Lista de itens
+itens = [Item1, Item2]
 
-novoPedido = pedido(1, "14/09/26", "21:10", novoCliente, ItemPedido, "Pix")
-novoPedido.imprimir()
-
-xbacon= Produto(cod="P01", desc="Xbacon", tipo="Lanche", valor=19.99)
-xbacon.imprimirProduto()
+# Pedido
+pedido = Pedido(num=1, data="10/09/11", hora="20:30", cliente=novoCli, itens=itens, pagamento="Pix")
+pedido.imprimir()

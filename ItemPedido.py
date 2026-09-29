@@ -1,15 +1,11 @@
 class ItemPedido:
 
-    def __init__(self, produto, ItemQuantidade):
+    def __init__(self, produto, obs, qtd, desconto):
+        self.produto = produto
+        self.observacao = obs
+        self.quantidade = qtd
+        self.desconto = desconto
 
-        self.produto=produto
-        self.Item=ItemQuantidade
-
-    def imprimir(self):
-        print:(f"\n|Itens: {self.Item}|"
-                f"\n|Produtos do Pedido: {self.produto}")
-        
-
-    
-
-
+    def TotalItem(self):
+        valor = (self.quantidade * self.produto.preco) - self.desconto
+        return valor
