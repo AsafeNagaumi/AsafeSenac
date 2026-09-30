@@ -5,34 +5,36 @@ from Cliente import Cliente
 os.system('cls')
 
 listaCliente = []
+listaProduto = []
 
 def MenuPrincipal():
-       while True:
-        print(f"\n|------------------------------|"
-              f"\n|------- Menu Principal -------|"
+    while True:
+        print(
+              f"\n|------- MENU PRINCIPAL -------|"
               f"\n|1 ----- Menu Clientes  -------|"
               f"\n|2 ----- Menu Produtos  -------|"
               f"\n|3 ----- Finalizar ------------|"
               f"\n|------------------------------|")
-        opcs = input("Inserir Opcção:")
+        opcs = input("\nInserir Opção:")
 
         if opcs =="1": MenuClientes()
 
         elif opcs =="2": MenuProdutos()
 
         elif opcs =="3": break
+
+        else: print("Por favor, escolha uma opção válida.")
               
        
-def MenuClientes():
-    
+def MenuClientes(): 
     while True:
-        print(f"\n|-------------------------------------------|"
-              f"\n|----------- Menu Do Cliente ---------------|"
+        print(
+              f"\n|----------- MENU DO CLIENTE ---------------|"
               f"\n|1 --------- Cadastrar Cliente -------------|"
               f"\n|2 --------- Listar Clientes ---------------|"
               f"\n|3 --------- Voltar ao Menu Principal ------|"
               f"\n|-------------------------------------------|")
-        opc = input("Opção:")
+        opc = input("\nOpção:")
 
         if opc =="1":
                 novocli = Cliente(input("Nome:"), input("Telefone:"), input("Endereço:"))
@@ -45,11 +47,32 @@ def MenuClientes():
                 
         elif opc =="3": break
 
+        else: print("Por favor, escolha uma opção válida.")
+
 
 def MenuProdutos():
-     print(f"\n|-------------------------------------|"
-           f"\n|--------- Menu dos Produtos ---------|"
-           f"\n|1 ------- Cadastrar Produto ---------|"
-           f"\n|2 ------- Listar Produtos -----------|"
-           f"\n|3 ----- Voltar ao Menu Principal ----|"
-           f"\n|-------------------------------------|")
+    while True:
+            print(
+                  f"\n|--------- MENU DOS PRODUTOS ---------|"
+                  f"\n|1 ------- Cadastrar Produto ---------|"
+                  f"\n|2 ------- Listar Produtos -----------|"
+                  f"\n|3 ----- Voltar ao Menu Principal ----|"
+                  f"\n|-------------------------------------|")
+            opcs = input("\nInserir Opção:")
+
+            if opcs =="1": 
+                  novoPro = Produto(input("Código:"), input("Descrição:"), input("Categoria:"), input("Preço:"))
+                  listaProduto.append(novoPro)
+                  print("Produto Cadastrado com sucesso!")
+                 
+            elif opcs =="2": 
+                 for novoPro in listaProduto:
+                      novoPro.imprimir()
+
+            elif opcs =="3": break
+
+            else: print("Por favor, escolha uma opção válida.")
+
+
+if __name__ == "__main__":
+     MenuPrincipal()

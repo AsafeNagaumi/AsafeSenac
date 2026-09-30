@@ -8,7 +8,7 @@ class Produto:
 
     def imprimir(self):
         print(f"\n|----------- Produto cód. {self.codigo} -----------|"
-              f"\n|Descrição: {self.descricao}                      |"
+              f"\n|Descrição: {self.descricao}        |"
               f"\n|Tipo: {self.categoria}                           |"
-              f"\n|Preço: R$ {self.preco:.2f}                       |"
-              f"\n|-------------------------------------------------|")
+              f"\n|Preço: R$ {self.preco}                       |"
+              f"\n|---------------------------------------|")
