@@ -12,6 +12,7 @@ class Cliente:
         self.__telefone = telefone
 
     def imprimir(self):
-        print(f"|--Nome: {self.nome}---|")
-        print(f"|--Telefone: {self.__telefone}--|")
-        print(f"|--Endereço: {self.endereco}--|")
+        print(f"|--Nome: {self.nome} ---|")
+        print(f"|--Telefone: {self.__telefone} --|")
+        print(f"|--Endereço: {self.endereco} --|"
+              f"\n|------------------|")
